@@ -4,7 +4,7 @@
 #include "bt_test.h"
 
 static void
-win_delete_request_cb(void *data, Evas_Object *obj, void *event_info)
+win_delete_request_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
 	ui_app_exit();
 }
@@ -20,15 +20,14 @@ win_back_cb(void *data, Evas_Object *obj, void *event_info)
 #endif
 
 static void
-button_tv_hid_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_tv_hid_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_tv_hid_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_tv_hid_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_TV].bt_addr) > 0) {
 		bt_tv_hid_connect(ad);
-		button_drow(ad);
 	}
 }
 
@@ -36,13 +35,13 @@ button_tv_hid_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 //
 
 static void
-button_tv_hid_volume_up_clicked_cb(void *data, Evas_Object *obj,
+button_tv_hid_volume_up_clicked_cb(void *user_data, Evas_Object *obj,
 		void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG,
+	dlog_print(DLOG_INFO, LOG_TAG,
 			"=== bt_tv_hid_volume_up_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (tv_hid_connected != BT_HID_CONNECTED) {
 		return;
@@ -55,11 +54,11 @@ button_tv_hid_volume_up_clicked_cb(void *data, Evas_Object *obj,
 // Add the HID_KEY functions
 
 static void
-button_spk_tv_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_spk_tv_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_spk_tv_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_spk_tv_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_TV].bt_addr) > 0) {
 		bt_device_spk_connect(ad, BT_SPK_CONNECTED_TV);
@@ -68,11 +67,11 @@ button_spk_tv_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-button_spk_user1_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_spk_user1_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_spk_user1_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_spk_user1_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_USER1].bt_addr) > 0) {
 		bt_device_spk_connect(ad, BT_SPK_CONNECTED_USER1);
@@ -81,11 +80,11 @@ button_spk_user1_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-button_spk_user2_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_spk_user2_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_spk_user2_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_spk_user2_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_USER2].bt_addr) > 0) {
 		bt_device_spk_connect(ad, BT_SPK_CONNECTED_USER2);
@@ -94,11 +93,11 @@ button_spk_user2_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-button_spk_user3_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_spk_user3_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_spk_user3_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_spk_user3_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_USER3].bt_addr) > 0) {
 		bt_device_spk_connect(ad, BT_SPK_CONNECTED_USER3);
@@ -107,11 +106,11 @@ button_spk_user3_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-button_spk_temp_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_spk_temp_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== bt_spk_user3_clicked_cb() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== bt_spk_temp_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if(strlen(bt_device[BT_SPK_CONNECTED_TEMP].bt_addr) > 0) {
 		bt_device_spk_connect(ad, BT_SPK_CONNECTED_TEMP);
@@ -120,13 +119,13 @@ button_spk_temp_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-button_spk_volume_up_clicked_cb(void *data, Evas_Object *obj,
+button_spk_volume_up_clicked_cb(void *user_data, Evas_Object *obj,
 		void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG,
+	dlog_print(DLOG_INFO, LOG_TAG,
 			"=== bt_spk_volume_up_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (tv_hid_connected != BT_HID_CONNECTED
 			&& device_spk_connected == BT_SPK_NOTCONNECTED) {
@@ -134,7 +133,7 @@ button_spk_volume_up_clicked_cb(void *data, Evas_Object *obj,
 	}
 
 	if (tv_hid_connected == BT_HID_CONNECTED
-			|| device_spk_connected == BT_SPK_CONNECTED_TV) {
+			&& device_spk_connected == BT_SPK_CONNECTED_TV) {
 		tv_hid_key_send(ad, SAMSUNG_TV, HID_VOLUME_UP);
 		return;
 	} else {
@@ -143,13 +142,13 @@ button_spk_volume_up_clicked_cb(void *data, Evas_Object *obj,
 }
 
 static void
-button_avrcp_play_pause_clicked_cb(void *data, Evas_Object *obj,
+button_avrcp_play_pause_clicked_cb(void *user_data, Evas_Object *obj,
 		void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG,
+	dlog_print(DLOG_INFO, LOG_TAG,
 			"=== bt_avrcp_play_pause_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (device_spk_connected < BT_SPK_CONNECTED_USER1) {
 		return;
@@ -161,12 +160,12 @@ button_avrcp_play_pause_clicked_cb(void *data, Evas_Object *obj,
 }
 
 static void
-button_avrcp_next_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+button_avrcp_next_clicked_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG,
+	dlog_print(DLOG_INFO, LOG_TAG,
 			"=== bt_avrcp_play_pause_clicked_cb() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (device_spk_connected < BT_SPK_CONNECTED_USER1) {
 		return;
@@ -186,11 +185,11 @@ add_content_in_box(Evas_Object *box, Evas_Object *content)
 }
 
 void
-button_drow(void *data)
+button_drow(void *user_data)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== button_drow() ===");
+//	dlog_print(DLOG_INFO, LOG_TAG, "=== button_drow() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (bt_state == BT_ADAPTER_ENABLED) {
 		elm_object_text_set(ad->lbl_info,
@@ -336,13 +335,21 @@ button_drow(void *data)
 	}
 
 	/* Button-8 */
-	if (device_spk_connected >= 0) {
+	if (device_spk_connected > BT_SPK_CONNECTED_TV ||
+			(device_spk_connected == BT_SPK_CONNECTED_TV
+			 && tv_hid_connected == BT_HID_CONNECTED)) {
 		elm_object_disabled_set(ad->bt_spk_volume_up, EINA_FALSE);
-		elm_object_text_set(ad->bt_spk_volume_up,
-				_("<color=#FF4500FF>TV/BT Volume up</color>"));
+
+		if (device_spk_connected > BT_SPK_CONNECTED_TV) {
+			elm_object_text_set(ad->bt_spk_volume_up,
+					_("<color=#FF4500FF>BT Volume up</color>"));
+		} else {
+			elm_object_text_set(ad->bt_spk_volume_up,
+					_("<color=#FF4500FF>TV Volume up</color>"));
+		}
 	} else {
 		if (bt_state == BT_ADAPTER_DISABLED
-				|| device_spk_connected == BT_SPK_NOTCONNECTED) {
+				|| device_spk_connected <= BT_SPK_CONNECTED_TV) {
 			elm_object_disabled_set(ad->bt_spk_volume_up, EINA_TRUE);
 		} else {
 			elm_object_disabled_set(ad->bt_spk_volume_up, EINA_FALSE);
@@ -352,7 +359,7 @@ button_drow(void *data)
 	}
 
 	/* Button-9 */
-	if (device_spk_connected >= 1) {
+	if (device_spk_connected > BT_SPK_CONNECTED_TV) {
 		elm_object_disabled_set(ad->bt_avrcp_play_pause, EINA_FALSE);
 		if ( device_avrcp_state_play_pause == true ) {
 			strncpy(button_txt, "<color=#FF4500FF>Music/Video (",
@@ -374,7 +381,7 @@ button_drow(void *data)
 	} else {
 		if (bt_state == BT_ADAPTER_DISABLED
 				|| device_spk_connected == BT_SPK_NOTCONNECTED
-				|| device_spk_connected == 0) {
+				|| device_spk_connected == BT_SPK_CONNECTED_TV) {
 			elm_object_disabled_set(ad->bt_avrcp_play_pause, EINA_TRUE);
 		} else {
 			elm_object_disabled_set(ad->bt_avrcp_play_pause, EINA_FALSE);
@@ -391,7 +398,7 @@ button_drow(void *data)
 	} else {
 		if (bt_state == BT_ADAPTER_DISABLED
 				|| device_spk_connected == BT_SPK_NOTCONNECTED
-				|| device_spk_connected == 0) {
+				|| device_spk_connected == BT_SPK_CONNECTED_TV) {
 			elm_object_disabled_set(ad->bt_avrcp_next, EINA_TRUE);
 		} else {
 			elm_object_disabled_set(ad->bt_avrcp_next, EINA_FALSE);
@@ -407,7 +414,7 @@ create_base_gui(appdata_s *ad)
 	/* Window */
 	/* Create and initialize elm_win.
 	   elm_win is mandatory to manipulate window. */
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== create_base_gui() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== create_base_gui() ===");
 
 	ad->win = elm_win_util_standard_add(PACKAGE, PACKAGE);
 	elm_win_autodel_set(ad->win, EINA_TRUE);
@@ -499,15 +506,15 @@ create_base_gui(appdata_s *ad)
 }
 
 static bool
-app_create(void *data)
+app_create(void *user_data)
 {
 	/* Hook to take necessary actions before main event loop starts
 		Initialize UI resources and application's data
 		If this function returns true, the main loop of application starts
 		If this function returns false, the application is terminated */
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== app_create() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== app_create() ===");
 
-	appdata_s *ad = data;
+	appdata_s *ad = user_data;
 
 	if (bt_info_init(ad) != BT_ERROR_NONE) {
 		ui_app_exit();
@@ -521,33 +528,35 @@ app_create(void *data)
 }
 
 static void
-app_control(app_control_h app_control, void *data)
+app_control(app_control_h app_control, void *user_data)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== app_control() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== app_control() ===");
 	/* Handle the launch request. */
 }
 
 #if 0
 static void
-app_pause(void *data)
+app_pause(void *user_data)
 {
 	/* Take necessary actions when application becomes invisible. */
 }
 
 static void
-app_resume(void *data)
+app_resume(void *user_data)
 {
 	/* Take necessary actions when application becomes visible. */
 }
 #endif
 
 static void
-app_terminate(void *data)
+app_terminate(void *user_data)
 {
-	dlog_print(DLOG_DEBUG, LOG_TAG, "=== app_terminate() ===");
+	dlog_print(DLOG_INFO, LOG_TAG, "=== app_terminate() ===");
 	/* Release all resources. */
 
-	bt_terminate();
+	appdata_s *ad = user_data;
+
+	bt_terminate(ad);
 }
 
 #if 0
@@ -601,6 +610,8 @@ ui_app_low_memory(app_event_info_h event_info, void *user_data)
 int
 main(int argc, char *argv[])
 {
+	dlog_print(DLOG_INFO, LOG_TAG, "\n=== COZYMA_BT_APP start ===");
+
 	appdata_s ad = {0,};
 	int ret = 0;
 
