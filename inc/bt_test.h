@@ -13,7 +13,6 @@ typedef struct BT_Device {
 
 // -1 : Power ON and not bonded, 0 : Not bonded(but try to bond), 1 : Bonded
 typedef enum {
-	BT_HID_NOTCONNECTED_POWERON = -1,
 	BT_HID_NOTCONNECTED = 0,
 	BT_HID_CONNECTED = 1
 } bt_hid_bonded_state_e;
@@ -73,7 +72,8 @@ bt_adapter_state_e bt_state;
 bt_device_h bt_device[MAX_BT_DEVICE];
 
 bool tv_hid_connect_auto;
-int tv_hid_connected;
+bool tv_hid_connected;
+bool tv_power_offed;
 
 int device_spk_connect_auto;
 int device_spk_connected;
@@ -81,9 +81,9 @@ bool device_avrcp_state_play_pause;
 
 bt_media_info_s media_info;
 
-int bt_info_init(void *user_data);
+int bt_info_init();
 bool bt_start_service(void *user_data);
-void bt_terminate(void);
+void bt_terminate(void *user_data);
 bool bt_tv_hid_connect(void *user_data);
 bool bt_device_spk_connect(void *user_data, int connected_device);
 void tv_hid_key_send(void *user_data, bt_tv_brand_e brand, bt_tv_key_e key);
