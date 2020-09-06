@@ -1,0 +1,5 @@
+set sysroot C:/Tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core
+set debug-file-directory C:/Tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/lib/debug
+set solib-search-path D:/workspace/BT_Test/Debug
+dir C:/Tizen-studio/platforms/tizen-5.5/iot-headed/rootstraps/iot-headed-5.5-device.core/usr/src/debug
+sharedlibrary
