@@ -374,8 +374,8 @@ button_drow(void *user_data)
 					strlen("<color=#FF4500FF>Music/Video(") + 1);
 			strncat(button_txt, media_info.title,
 					strlen(media_info.title) + 1);
-			strncat(button_txt, ") : Stopping > Play</color>",
-					strlen(") : Stopping > Play</color>") + 1);
+			strncat(button_txt, ") : Stoped > Play</color>",
+					strlen(") : Stoped > Play</color>") + 1);
 			elm_object_text_set(ad->bt_avrcp_play_pause, button_txt);
 		}
 	} else {
@@ -387,7 +387,7 @@ button_drow(void *user_data)
 			elm_object_disabled_set(ad->bt_avrcp_play_pause, EINA_FALSE);
 		}
 		elm_object_text_set(ad->bt_avrcp_play_pause,
-				_("Music/Video () : Stopping > Play : Cannot use"));
+				_("Music/Video () : Stoped > Play : Cannot use"));
 	}
 
 	/* Button-10 */
